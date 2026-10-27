@@ -1,4 +1,4 @@
-package com.springboot.GymMembership;
+package com.gymmembership.entity;
 
 import java.time.LocalDate;
 

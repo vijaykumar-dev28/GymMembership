@@ -1,4 +1,4 @@
-package com.springboot.GymMembership;
+package com.gymmembership.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gymmembership.entity.GymMember;
+import com.gymmembership.service.GymMemberService;
+
 import jakarta.validation.Valid;
 
 @CrossOrigin(origins="*")
@@ -28,12 +31,12 @@ public class GymMemberController {
 	@PostMapping
 	public ResponseEntity<?> addMember(@Valid @RequestBody GymMember member, BindingResult result) {
 		if(result.hasErrors()) {
-	        // collect all error messages
+	        // 
 	        List<String> errors = result.getAllErrors()
 	            .stream()
 	            .map(e -> e.getDefaultMessage())
 	            .collect(Collectors.toList());
-	        return ResponseEntity.status(400).body(errors);  // 400 Bad Request
+	        return ResponseEntity.status(400).body(errors);  
 	    }
 		return ResponseEntity.status(201).body(service.addMember(member));
 	}
@@ -74,7 +77,7 @@ public class GymMemberController {
 	            .stream()
 	            .map(e -> e.getDefaultMessage())
 	            .collect(Collectors.toList());
-	        return ResponseEntity.status(400).body(errors);  // 400 Bad Request
+	        return ResponseEntity.status(400).body(errors); 
 	    }
 		GymMember updated=service.updateMemberById(id, member);
 		if(updated!=null) {

@@ -1,9 +1,12 @@
-package com.springboot.GymMembership;
+package com.gymmembership.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.gymmembership.entity.GymMember;
+import com.gymmembership.repository.GymMemberRepository;
 
 @Service
 public class GymMemberService {
